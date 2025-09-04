@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Friends – A platform where people in need meet friends in deed</title>
+  <!-- TailwindCSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="description" content="Friends – Connecting hearts, building hope. A social charity movement where people in need meet friends in deed." />
+  <style>
+    /* Custom colors via CSS variables for easy tweaking */
+    :root {
+      --leaf: #4CAF50;       /* Primary: Leaf Green */
+      --text: #333333;       /* Charcoal Gray */
+      --bg-light: #FFFFFF;   /* White */
+      --bg-dark: #000000;    /* Black */
+      --soft: #F5F5F5;       /* Optional soft gray for light mode cards */
+    }
+    /* Hide non-active SPA sections */
+    .route { display: none; }
+    .route.active { display: block; }
+  </style>
+</head>
+<body class="min-h-screen bg-white text-[color:var(--text)]" id="appRoot">
+  <!-- ============================
+       HEADER / NAVBAR
+       ============================ -->
+  <header class="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-white/70 dark:supports-[backdrop-filter]:bg-black/50 border-b border-black/10 dark:border-white/10">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <!-- Brand / Logo text (edit freely) -->
+      <a href="#home" data-route class="flex items-center gap-2">
+        <span class="inline-block w-3 h-6 bg-[color:var(--leaf)] rounded-sm"></span>
+        <span class="font-semibold tracking-wide text-lg">Friends</span>
+      </a>
+
+      <!-- Nav -->
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a href="#home" data-route class="hover:opacity-80">Home</a>
+        <a href="#help" data-route class="hover:opacity-80">Call for Help</a>
+        <a href="#helper" data-route class="hover:opacity-80">Become a Helper</a>
+        <a href="#admin" data-route class="hover:opacity-80">Admin</a>
+      </nav>
+
+      <!-- Theme Toggle -->
+      <button id="themeToggle" class="ml-4 inline-flex items-center gap-2 px-3 py-2 rounded-lg border border-[color:var(--leaf)] text-[color:var(--text)] hover:bg-[color:var(--leaf)] hover:text-white transition text-sm" aria-label="Toggle dark mode">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4">
+          <path d="M21.64 13A9 9 0 1111 2.36 7 7 0 1021.64 13z" />
+        </svg>
+        Theme
+      </button>
+
+      <!-- Mobile menu button -->
+      <button id="mobileMenuBtn" class="md:hidden ml-2 p-2 rounded-lg border border-black/10 dark:border-white/10" aria-label="Open menu">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        </svg>
+      </button>
+    </div>
+    <!-- Mobile dropdown -->
+    <div id="mobileMenu" class="md:hidden hidden border-t border-black/10 dark:border-white/10">
+      <div class="max-w-6xl mx-auto px-4 py-3 flex flex-col gap-3">
+        <a href="#home" data-route class="hover:opacity-80">Home</a>
+        <a href="#help" data-route class="hover:opacity-80">Call for Help</a>
+        <a href="#helper" data-route class="hover:opacity-80">Become a Helper</a>
+        <a href="#admin" data-route class="hover:opacity-80">Admin</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================
+       MAIN ROUTES (SPA-style)
+       ============================ -->
+  <main class="max-w-6xl mx-auto px-4 py-10">
+
+    <!-- HOME -->
+    <section id="home" class="route active">
+      <!-- HERO -->
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div>
+          <!-- Title (edit text here) -->
+          <h1 class="text-3xl md:text-5xl font-bold leading-tight">
+            Friends – A platform where people in need meet <span class="text-[color:var(--leaf)]">friends in deed</span>.
+          </h1>
+          <p class="mt-4 text-lg opacity-90">Connecting hearts, building hope.</p>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <!-- CTA buttons (edit labels easily) -->
+            <a href="#help" data-route class="inline-flex items-center justify-center px-5 py-3 rounded-xl bg-[color:var(--leaf)] text-white font-medium shadow hover:opacity-90">Call for Help</a>
+            <a href="#helper" data-route class="inline-flex items-center justify-center px-5 py-3 rounded-xl border-2 border-[color:var(--leaf)] text-[color:var(--text)] font-medium hover:bg-[color:var(--leaf)] hover:text-white transition">Become a Helper</a>
+          </div>
+        </div>
+        <div class="relative">
+          <div class="aspect-[4/3] rounded-2xl bg-gradient-to-br from-[color:var(--leaf)]/15 to-emerald-500/10 ring-1 ring-black/5 dark:ring-white/10 flex items-center justify-center">
+            <!-- Placeholder graphic -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-32 h-32 text-[color:var(--leaf)]" fill="currentColor"><path d="M12 2a1 1 0 01.993.883L13 3v3.05a7.002 7.002 0 015.938 5.938H22a1 1 0 01.117 1.993L22 14h-3.062A7.002 7.002 0 0113 19.95V23a1 1 0 01-1.993.117L11 23v-3.05A7.002 7.002 0 015.062 14H2a1 1 0 01-.117-1.993L2 12h3.05A7.002 7.002 0 0111 6.05V3a1 1 0 011-1z"/></svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mission / Vision (edit copy freely) -->
+      <section class="mt-16 grid md:grid-cols-3 gap-6">
+        <div class="p-6 rounded-2xl bg-[color:var(--soft)] dark:bg-white/5 ring-1 ring-black/5 dark:ring-white/10">
+          <h3 class="font-semibold text-lg">Our Mission</h3>
+          <p class="mt-2 text-sm opacity-90">We connect people in need with caring helpers—locally and globally—so that no one faces challenges alone.</p>
+        </div>
+        <div class="p-6 rounded-2xl bg-[color:var(--soft)] dark:bg-white/5 ring-1 ring-black/5 dark:ring-white/10">
+          <h3 class="font-semibold text-lg">What We Do</h3>
+          <p class="mt-2 text-sm opacity-90">We provide a simple way to ask for help, offer help, and for admins to match the right support to the right person.</p>
+        </div>
+        <div class="p-6 rounded-2xl bg-[color:var(--soft)] dark:bg-white/5 ring-1 ring-black/5 dark:ring-white/10">
+          <h3 class="font-semibold text-lg">How You Can Help</h3>
+          <p class="mt-2 text-sm opacity-90">Volunteer time, donate items, or simply listen. Every act of kindness builds hope.</p>
+        </div>
+      </section>
+
+      <!-- Testimonials placeholder -->
+      <section class="mt-16">
+        <h2 class="text-2xl font-semibold">Stories of Impact</h2>
+        <div class="mt-6 grid md:grid-cols-3 gap-6">
+          <!-- Duplicate or replace these cards with real stories later -->
+          <article class="p-6 rounded-2xl bg-[color:var(--soft)] dark:bg-white/5 ring-1 ring-black/5 dark:ring-white/10">
+            <p class="italic opacity-90">“I found a friend when I needed it most.”</p>
+            <div class="mt-3 text-sm font-medium">— Amina</div>
+          </article>
+          <article class="p-6 rounded-2xl bg-[color:var(--soft)] dark:bg-white/5 ring-1 ring-black/5 dark:ring-white/10">
+            <p class="italic opacity-90">“Helping through Friends reminded me how powerful small acts can be.”</p>
+            <div class="mt-3 text-sm font-medium">— David</div>
+          </article>
+          <article class="p-6 rounded-2xl bg-[color:var(--soft)] dark:bg-white/5 ring-1 ring-black/5 dark:ring-white/10">
+            <p class="italic opacity-90">“The platform made it easy to connect with support.”</p>
+            <div class="mt-3 text-sm font-medium">— Lena</div>
+          </article>
+        </div>
+      </section>
+    </section>
+
+    <!-- CALL FOR HELP (Seeker form) -->
+    <section id="help" class="route">
+      <h2 class="text-2xl md:text-3xl font-semibold">Call for Help</h2>
+      <p class="mt-2 opacity-80">Tell us what you need. We’ll do our best to connect you with the right support.</p>
+
+      <form id="helpForm" class="mt-8 grid gap-4 max-w-2xl" novalidate>
+        <div>
+          <label class="block text-sm mb-1" for="helpName">Full Name *</label>
+          <input id="helpName" name="name" type="text" required class="w-full px-4 py-3 rounded-xl bg-white dark:bg-white/5 border border-black/10 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-[color:var(--leaf)]" placeholder="Your name" />
+        </div>
+        <div>
+          <label class="block text-sm mb-1" for="helpEmail">Email *</label>
+          <input id="helpEmail" name="email" type="email" required class="w-full px-4 py-3 rounded-xl bg-white dark:bg-white/5 border border-black/10 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-[color:var(--leaf)]" placeholder="you@example.com" />
+        </div>
+        <div>
+          <label class="block text-sm mb-1" for="helpType">Type of Help Needed *</label>
+          <select id="helpType" name="type" required class="w-full px-4 py-3 rounded-xl bg-white dark:bg-white/5 border border-black/10 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-[color:var(--leaf)]">
+            <option value="">Select…</option>
+            <option>Emotional Support</option>
+            <option>Food / Essentials</option>
+            <option>Housing / Shelter</option>
+            <option>Job / Skills</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-sm mb-1" for="helpMsg">Message *</label>
+          <textarea id="helpMsg" name="message" required rows="5" class="w-full px-4 py-3 rounded-xl bg-white dark:bg-white/5 border border-black/10 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-[color:var(--leaf)]" placeholder="Describe your situation and what kind of help would make a difference…"></textarea>
+        </div>
+        <button class="inline-flex items-center justify-center px-5 py-3 rounded-xl bg-[color:var(--leaf)] text-white font-medium hover:opacity-90">Submit Request</button>
+        <p id="helpSuccess" class="hidden text-[color:var(--leaf)] font-medium">✅ Thank you. Your request has been received. We’ll be in touch soon.</p>
+      </form>
+    </section>
+
+    <!-- BECOME A HELPER (Volunteer form) -->
+    <section id="helper" class="route">
+      <h2 class="text-2xl md:text-3xl font-semibold">Become a Helper</h2>
+      <p class="mt-2 opacity-80">Share how you can help—time, skills, or resources.</p>
+
+      <form id="helperForm" class="mt-8 grid gap-4 max-w-2xl" novalidate>
+        <div>
+          <label class="block text-sm mb-1" for="volName">Full Name *</label>
+          <input id="volName" name="name" type="text" required class="w-full px-4 py-3 rounded-xl bg-white dark:bg-white/5 border border-black/10 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-[color:var(--leaf)]" placeholder="Your name" />
+        </div>
+        <div>
+          <label class="block text-sm mb-1" for="volEmail">Email *</label>
+          <input id="volEmail" name="email" type="email" required class="w-full px-4 py-3 rounded-xl bg-white dark:bg-white/5 border border-black/10 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-[color:var(--leaf)]" placeholder="you@example.com" />
+        </div>
+        <div>
+          <label class="block text-sm mb-1" for="volOffer">What can you offer? *</label>
+          <select id="volOffer" name="offer" required class="w-full px-4 py-3 rounded-xl bg-white dark:bg-white/5 border border-black/10 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-[color:var(--leaf)]">
+            <option value="">Select…</option>
+            <option>Time / Volunteering</option>
+            <option>Mentoring / Skills</option>
+            <option>Food / Essentials</option>
+            <option>Transport</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-sm mb-1" for="volLocation">Location (City, Country) *</label>
+          <input id="volLocation" name="location" type="text" required class="w-full px-4 py-3 rounded-xl bg-white dark:bg-white/5 border border-black/10 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-[color:var(--leaf)]" placeholder="e.g., Berlin, Germany" />
+        </div>
+        <div>
+          <label class="block text-sm mb-1" for="volMsg">Message (optional)</label>
+          <textarea id="volMsg" name="message" rows="4" class="w-full px-4 py-3 rounded-xl bg-white dark:bg-white/5 border border-black/10 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-[color:var(--leaf)]" placeholder="Share any details we should know…"></textarea>
+        </div>
+        <button class="inline-flex items-center justify-center px-5 py-3 rounded-xl border-2 border-[color:var(--leaf)] text-[color:var(--text)] font-medium hover:bg-[color:var(--leaf)] hover:text-white transition">Submit</button>
+        <p id="helperSuccess" class="hidden text-[color:var(--leaf)] font-medium">✅ Thank you for volunteering. We’ll contact you with next steps.</p>
+      </form>
+    </section>
+
+    <!-- ADMIN PLACEHOLDER -->
+    <section id="admin" class="route">
+      <div class="p-8 rounded-2xl bg-[color:var(--soft)] dark:bg-white/5 ring-1 ring-black/5 dark:ring-white/10">
+        <h2 class="text-2xl md:text-3xl font-semibold">Admin Dashboard Coming Soon</h2>
+        <p class="mt-2 opacity-80">This is a placeholder for future tools to manage connections between helpers and people in need.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================
+       FOOTER
+       ============================ -->
+  <footer class="mt-10 border-t border-black/10 dark:border-white/10">
+    <div class="max-w-6xl mx-auto px-4 py-8 flex flex-col md:flex-row items-center md:items-start justify-between gap-6">
+      <div>
+        <div class="flex items-center gap-2">
+          <span class="inline-block w-3 h-6 bg-[color:var(--leaf)] rounded-sm"></span>
+          <span class="font-semibold">Friends</span>
+        </div>
+        <p class="mt-2 text-sm opacity-80">Connecting hearts, building hope.</p>
+      </div>
+      <div class="flex items-center gap-4">
+        <!-- Social icons are simple SVGs; replace href with your real links -->
+        <a href="#" aria-label="Email" class="p-2 rounded hover:bg-black/5 dark:hover:bg-white/10">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M1.5 6.75A2.25 2.25 0 013.75 4.5h16.5a2.25 2.25 0 012.25 2.25v10.5A2.25 2.25 0 0120.25 19.5H3.75A2.25 2.25 0 011.5 17.25V6.75zm2.486-.75a.75.75 0 00-.736.605L12 12.818l8.75-6.213a.75.75 0 00-.736-.605H3.986z"/></svg>
+        </a>
+        <a href="#" aria-label="Instagram" class="p-2 rounded hover:bg-black/5 dark:hover:bg-white/10">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M7.5 2.25h9A5.25 5.25 0 0121.75 7.5v9a5.25 5.25 0 01-5.25 5.25h-9A5.25 5.25 0 012.25 16.5v-9A5.25 5.25 0 017.5 2.25zm9.75 3a.75.75 0 100 1.5.75.75 0 000-1.5zM12 7.5a4.5 4.5 0 100 9 4.5 4.5 0 000-9z"/></svg>
+        </a>
+        <a href="#" aria-label="Twitter" class="p-2 rounded hover:bg-black/5 dark:hover:bg-white/10">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.177 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.482A4.073 4.073 0 012.8 9.713v.052a4.106 4.106 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================
+       SCRIPTS
+       ============================ -->
+  <script>
+    // ---------------------------
+    // Simple SPA Router (hash-based)
+    // ---------------------------
+    const routes = document.querySelectorAll('.route');
+    function showRoute(id) {
+      routes.forEach(r => r.classList.remove('active'));
+      const target = document.getElementById(id) || document.getElementById('home');
+      target.classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    function handleHash() {
+      const id = location.hash.replace('#', '') || 'home';
+      showRoute(id);
+      // close mobile menu on route change
+      mobileMenu.classList.add('hidden');
+    }
+    window.addEventListener('hashchange', handleHash);
+    document.querySelectorAll('[data-route]').forEach(link => {
+      link.addEventListener('click', (e) => {
+        const href = link.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          // Let hashchange handle route
+        }
+      });
+    });
+    handleHash();
+
+    // ---------------------------
+    // Mobile menu toggle
+    // ---------------------------
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // ---------------------------
+    // Theme (Light/Dark) with localStorage
+    // ---------------------------
+    const themeToggle = document.getElementById('themeToggle');
+    const root = document.documentElement;
+    const appRoot = document.getElementById('appRoot');
+
+    function applyTheme(mode) {
+      if (mode === 'dark') {
+        document.documentElement.classList.add('dark');
+        appRoot.classList.remove('bg-white');
+        appRoot.classList.add('bg-black', 'text-white');
+      } else {
+        document.documentElement.classList.remove('dark');
+        appRoot.classList.remove('bg-black', 'text-white');
+        appRoot.classList.add('bg-white');
+      }
+      localStorage.setItem('friendsTheme', mode);
+    }
+
+    // Init theme: default light (white background), optional black (dark mode)
+    const stored = localStorage.getItem('friendsTheme');
+    applyTheme(stored === 'dark' ? 'dark' : 'light');
+
+    themeToggle.addEventListener('click', () => {
+      const isDark = document.documentElement.classList.contains('dark');
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+
+    // ---------------------------
+    // Forms: simple validation + success message
+    // ---------------------------
+    function handleForm(formId, successId) {
+      const form = document.getElementById(formId);
+      const success = document.getElementById(successId);
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        // Basic HTML5 validity check
+        if (!form.checkValidity()) {
+          // Trigger native validation UI
+          form.reportValidity();
+          return;
+        }
+        // In real app, send to backend here via fetch()
+        success.classList.remove('hidden');
+        form.reset();
+        // Scroll to message
+        success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      });
+    }
+    handleForm('helpForm', 'helpSuccess');
+    handleForm('helperForm', 'helperSuccess');
+
+    // ---------------------------
+    // DEV NOTE: Where to edit copy
+    // Search for these markers to change public text easily:
+    // - HERO title & subtitle in #home section
+    // - Button labels ("Call for Help", "Become a Helper")
+    // - Mission / Vision text cards
+    // - Testimonials placeholder quotes & names
+    // - Form field labels & placeholders in #help and #helper
+    // ---------------------------
+  </script>
+</body>
+</html>
